@@ -1,7 +1,6 @@
 // Ionic Starter App
 
 const FIREBASE_URL = "https://the-fat-joke.firebaseio.com/";
-const FIREBASE_CATEGORY_PATH = "";
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
@@ -11,11 +10,12 @@ var jokes = []; // current list of jokes to choose from
 
 function initializeJokes(category) {
   var ref = new Firebase(FIREBASE_URL);
-  var firebaseMessages = ref.child(FIREBASE_CATEGORY_PATH + category);
+  var firebaseMessages = ref.child(category); // get the child from the root based on category
   
   firebaseMessages.on("value", function(snapshot) {
+    // iterate through all the children inside each child from the root based on category
     snapshot.forEach(function(child) {
-      jokes.push(child.val());    
+      jokes.push(child.val());   // add it to the list of jokes
     });
   });
 }
@@ -30,17 +30,22 @@ function getUrlParameter(name) {
 };
 
 module.controller('jokeCtrl', function($scope, $firebaseObject) {
-  $scope.getJoke = function(queryStringParameter) {
+  $scope.generateJoke = function(queryStringParameter) {
     if (jokes.length == 0) {
+      // there are no jokes left, so generate a new list of jokes
       initializeJokes(getUrlParameter(queryStringParameter));
     }
     
+    // pick a random index from the jokes list
     var index = Math.trunc(Math.random() * jokes.length - 1);
-    var result = jokes[index];
-    
-    jokes.splice(index, 1);
-
-    return result;
+    // split the line breaks into a new array 
+    // (can't seem to just output it raw)
+    var result = jokes[index].split("\n");  
+    // take it the joke we just stored 
+    // (so we don't have duplicate random jokes)
+    jokes.splice(index, 1); 
+    // use this array to output the lines seperately rather than on one line
+    $scope.jokeLines = result;  
   }
 })
 
