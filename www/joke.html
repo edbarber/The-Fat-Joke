@@ -47,6 +47,14 @@
       <ion-content>
           <div ng-repeat="line in jokeLines">{{line}}</div>
           <button ng-click="generateJoke('category')">Generate Joke</button>
+      
+          <!--
+          <h3 style="margin: .5em 1%; padding: .5em 1%; border: 2px groove rgb(21, 104, 180)">
+            {{theJoke}}
+          </h3>
+        -->
+          <button ng-show="showTTSButton" name="bntRead" ng-click="readText()">Read Text</button>
+      
       </ion-content>
     </ion-pane>
   </body>

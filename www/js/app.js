@@ -1,4 +1,5 @@
 // Ionic Starter App
+//import { TextToSpeech, TTSOptions } from '@ionic-native/text-to-speech';
 
 const FIREBASE_URL = "https://the-fat-joke.firebaseio.com/";
 
@@ -30,6 +31,10 @@ function getUrlParameter(name) {
 };
 
 module.controller('jokeCtrl', function($scope, $firebaseObject) {
+  $scope.showTTSButton = false;
+  $scope.line = "The Fat Joke!";
+  $scope.theJoke = "Here is what you have to read and laugh!";
+
   $scope.generateJoke = function(queryStringParameter) {
     if (jokes.length == 0) {
       // there are no jokes left, so generate a new list of jokes
@@ -46,7 +51,24 @@ module.controller('jokeCtrl', function($scope, $firebaseObject) {
     jokes.splice(index, 1); 
     // use this array to output the lines seperately rather than on one line
     $scope.jokeLines = result;  
+
+    //Get text and call TTS
+    $scope.line = $scope.jokeLines[0];
+    $scope.showTTSButton = true;
+    $scope.readText();
   }
+
+  //*********** Read text - TTS ***************
+  $scope.readText = function () {
+    var divText = $scope.line;
+
+    window.TTS.speak({text: divText, locale: 'en-US', rate: 0.8 }, function () {
+      console.log("SUCCESS");
+    }, function (reason) {
+      console.log(reason);
+    });
+  }
+
 })
 
 module.run(function($ionicPlatform) {
@@ -66,3 +88,4 @@ module.run(function($ionicPlatform) {
     }
   });
 })
+
