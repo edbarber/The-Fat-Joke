@@ -35,6 +35,11 @@ module.controller('jokeCtrl', function($scope, $firebaseObject) {
   $scope.line = "The Fat Joke!";
   $scope.theJoke = "Here is what you have to read and laugh!";
 
+  // call this to go back to the previous window
+  $scope.goBack = function() {
+    history.back();
+  }
+
   $scope.generateJoke = function(queryStringParameter) {
     if (jokes.length == 0) {
       // there are no jokes left, so generate a new list of jokes

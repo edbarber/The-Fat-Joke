@@ -46,6 +46,7 @@
       </ion-header-bar>
       <ion-content>
           <div ng-repeat="line in jokeLines">{{line}}</div>
+          <button ng-click="goBack()">Back</button>
           <button ng-click="generateJoke('category')">Generate Joke</button>
       
           <!--
