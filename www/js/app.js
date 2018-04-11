@@ -34,6 +34,7 @@ module.controller('jokeCtrl', function($scope, $firebaseObject) {
   $scope.showTTSButton = false;
   $scope.line = "The Fat Joke!";
   $scope.theJoke = "Here is what you have to read and laugh!";
+  $scope.hideMessage = false;
 
   // call this to go back to the previous window
   $scope.goBack = function() {
@@ -56,6 +57,8 @@ module.controller('jokeCtrl', function($scope, $firebaseObject) {
     jokes.splice(index, 1); 
     // use this array to output the lines seperately rather than on one line
     $scope.jokeLines = result;  
+    // used to hide initial message if jokes are shown
+    $scope.hideMessage = $scope.jokeLines.length > 0;
 
     //Get text and call TTS
     $scope.line = $scope.jokeLines[0];
