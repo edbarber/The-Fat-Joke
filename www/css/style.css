@@ -1,6 +1,89 @@
 /* Empty. Add your own CSS if you like */
 
-img {
-    width: 50%;
-    float: left;
+/* Empty. Add your own CSS if you like */
+*{
+    background-color: #F9EDF7;
+    
+    
+   
 }
+.top{
+    margin-top:5%!important;
+    margin-bottom: 3%;
+}
+.aside{
+ padding-left: 5%;
+    
+   
+}
+img{
+    width:90%;
+     height:90%;
+    
+}
+/*.images_main:hover{
+    border: 4px solid #0CFF0C;
+    
+}*/
+#joke{
+    position: absolute;
+    top:23%;
+    left: 43%;
+    background-color: ghostwhite; 
+}
+h4{
+   
+    font-family: 'Comic Sans MS';
+}
+h3{ 
+    font-family: 'Arial';
+    
+}
+#div_H3{
+    margin-top: 2%;
+    
+}
+#valentine{
+    padding-top: 0.3%;
+}
+#money{
+    padding-top: 3.3%;
+   
+}
+input{
+    width:50%;
+    height:50%;
+    padding-right: 5.5%;
+    margin-top: 0%;
+}
+
+.backToHome{
+    width:18%!important;
+    height:18%!important;
+    padding-right: 4%;
+    padding-bottom: 3%;
+   
+}
+
+.center{
+    width: 100%;
+    margin-left: 13%; 
+    padding-right: 10%; 
+    margin-top: 5%;
+}
+   
+    .square:before{
+        content: "";
+        display: block;
+        padding-top: 100%;
+    }
+    .square {
+        width: 80%;
+        background: ghostwhite;
+        margin-left: auto; 
+        margin-right: auto;       
+        margin-top: 10%;
+      }
+    
+      
+
