@@ -39,6 +39,7 @@ module.controller('jokeCtrl', function($scope, $firebaseObject) {
   // call this to go back to the previous window
   $scope.goBack = function() {
     history.back();
+    window.TTS.stop();
   }
 
   $scope.generateJoke = function(queryStringParameter) {
