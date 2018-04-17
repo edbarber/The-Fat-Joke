@@ -1,89 +1,78 @@
 /* Empty. Add your own CSS if you like */
 
-/* Empty. Add your own CSS if you like */
-*{
-    background-color: #F9EDF7;
-    
-    
-   
+ion-content {
+    background-color: #F9EDF7; 
+    margin: 1em 1%;
+    padding: 1em 1%;
 }
-.top{
-    margin-top:5%!important;
-    margin-bottom: 3%;
+
+/* *************** View: Welcome ************** */
+.top {
+    margin: 5% 0 3%;
 }
-.aside{
- padding-left: 5%;
-    
-   
+.aside {
+    padding: .5em 2.5%;
+    margin: .5em 2.5%;
 }
-img{
-    width:90%;
-     height:90%;
-    
+.aside img {
+    width: 90%;
 }
-/*.images_main:hover{
-    border: 4px solid #0CFF0C;
-    
-}*/
-#joke{
-    position: absolute;
-    top:23%;
-    left: 43%;
-    background-color: ghostwhite; 
-}
-h4{
-   
+h4 {
     font-family: 'Comic Sans MS';
 }
-h3{ 
-    font-family: 'Arial';
-    
+h3 { 
+    font-family: 'Arial';  
 }
-#div_H3{
-    margin-top: 2%;
-    
-}
-#valentine{
-    padding-top: 0.3%;
-}
-#money{
-    padding-top: 3.3%;
-   
-}
-input{
-    width:50%;
-    height:50%;
-    padding-right: 5.5%;
-    margin-top: 0%;
+.divHeader {
+    margin: 1em .5em;  
 }
 
-.backToHome{
-    width:18%!important;
-    height:18%!important;
-    padding-right: 4%;
-    padding-bottom: 3%;
-   
+/* *************** View: Joke ************** */
+.square {
+    width: 90%;
+    background-color: ghostwhite;
+    margin: 1em auto;    
+}
+.square > div {
+    font-size: 130%;
+    line-height: 140%;
+    margin: 1em 1%;
+    padding: 5px; 
+}
+.center {
+    margin: 1em auto;
+    padding: .25em;
+}  
+.center > div {
+    display: inline-block;
+    min-width: 90px;
+}
+.center img {
+    margin: .1em 1%;
+    vertical-align: middle;
+}
+.options {
+    width: 28%;
+}
+.options img {
+    min-width: 45px;
+    width: 38%;
+    border-radius: 100%;
+}
+.newJoke {
+    width: 38%;
+}
+.newJoke img {
+    min-width: 88px;
+    width: 90%;
+    
+}
+.newJoke:hover img, .options:hover img{
+    border: 1px solid #3399CC;
 }
 
-.center{
-    width: 100%;
-    margin-left: 13%; 
-    padding-right: 10%; 
-    margin-top: 5%;
-}
-   
-    .square:before{
-        content: "";
-        display: block;
-        padding-top: 100%;
-    }
-    .square {
-        width: 80%;
-        background: ghostwhite;
-        margin-left: auto; 
-        margin-right: auto;       
-        margin-top: 10%;
-      }
+
+
     
       
 
