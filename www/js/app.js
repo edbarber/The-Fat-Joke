@@ -32,14 +32,16 @@ function getUrlParameter(name) {
 
 module.controller('jokeCtrl', function($scope, $firebaseObject) {
   $scope.showTTSButton = false;
+  $scope.welcomeText = "Select the joke button to generate a joke";
   $scope.line = "The Fat Joke!";
   $scope.theJoke = "Here is what you have to read and laugh!";
   $scope.hideMessage = false;
+  //$scope.index = -1; //By default don't read a joke
 
   // call this to go back to the previous window
   $scope.goBack = function() {
     history.back();
-    window.TTS.stop();
+    $scope.stopReading();
   }
 
   $scope.generateJoke = function(queryStringParameter) {
@@ -50,6 +52,8 @@ module.controller('jokeCtrl', function($scope, $firebaseObject) {
     
     // pick a random index from the jokes list
     var index = Math.trunc(Math.random() * jokes.length - 1);
+    //Save the joke string before split
+    $scope.theJoke = jokes[index];
     // split the line breaks into a new array 
     // (can't seem to just output it raw)
     var result = jokes[index].split("\n");  
@@ -69,12 +73,21 @@ module.controller('jokeCtrl', function($scope, $firebaseObject) {
 
   //*********** Read text - TTS ***************
   $scope.readText = function () {
-    var divText = $scope.line;
-
+    var divText = ($scope.jokeLines != null)? $scope.theJoke: $scope.welcomeText;
+    
     window.TTS.speak({text: divText, locale: 'en-US', rate: 0.8 }, function () {
-      console.log("SUCCESS");
+      console.log("READ SUCCESS");
     }, function (reason) {
-      console.log(reason);
+      console.log("READ error: " + reason);
+    });
+  }
+
+  //********** Stop reading - TTS *************
+  $scope.stopReading = function (t) {
+    window.TTS.speak({text: '', locale: 'en-US', rate: 0.8 }, function () {
+      console.log("STOP SUCCESS");
+    }, function (reason) {
+      console.log("STOP error: " + reason);
     });
   }
 

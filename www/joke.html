@@ -44,19 +44,29 @@
       <ion-header-bar class="bar-stable">
         <h1 class="title">The Fat Joke</h1>
       </ion-header-bar>
+
       <ion-content>
-          <div class="square ">
-            <p ng-hide="hideMessage">Select the joke button to generate a joke</p>
-            <p ng-repeat="line in jokeLines">{{line}}</p>
+          <div class="square">
+            <div ng-hide="hideMessage">{{welcomeText}}</div>
+            <div ng-repeat="line in jokeLines">{{line}}</div>
           </div> 
-          <div class="row  center">      
-                 <a href="index.html" class="backToHome" ng-click="goBack()">  <img src="img/back.png" ></a>
-           <!-- <a<img src="img/back.png" id="backToHome"/></a>-->
-             <input type="image" alt="new joke" ng-click="generateJoke('category')" src="img/next.png">
-             <img alt="sound" src="img/sound.png" class="backToHome" onclick="sound(this)" name="bntRead" ng-click="readText()">
-     </div>
-         <!-- <button ng-show="showTTSButton" name="bntRead" ng-click="readText()">Read Text</button>-->
-      
+          <div class="row"> 
+              <div class="center text-center">     
+                <div class="options">
+                  <a href="index.html" ng-click="goBack()">
+                    <img src="img/back.png" alt="Image Back" title="Back">
+                  </a>
+                </div>
+               
+                <div class="newJoke">
+                  <img src="img/next.png" alt="new joke" title="New joke" ng-click="generateJoke('category')">
+                </div>
+
+                <div class="options">
+                  <img src="img/sound.png" alt="Read Text" id="readBtn" title="Read aloud" ng-click="readText()">
+                </div>  
+              </div>
+          </div>
       </ion-content>
     </ion-pane>
   </body>
